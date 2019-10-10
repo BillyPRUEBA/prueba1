@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Principal
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-card">
+      <img src="/assets/logo.pn" alt="" />
+      <ion-card-header>
+        <ion-card-subtitle>Modos de control</ion-card-subtitle>
+        
+        <ion-segment color="success">
+            <ion-segment-button checked>
+                <p><ion-icon name="leaf"></ion-icon></p>
+                <ion-label color="">Eco</ion-label>
+            </ion-segment-button>
+
+            <ion-segment-button (ionSelect)="enviareste()">
+              <p><ion-icon name="eye"></ion-icon></p>
+              <ion-label color="">Vigilancia</ion-label>          
+            </ion-segment-button>
+       
+            <ion-segment-button (ionSelect)="presentAlertConfirm()">
+                <p><ion-icon name="hand"></ion-icon></p>
+                <ion-label color="">Manual</ion-label>
+            </ion-segment-button> 
+        </ion-segment>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-list lines="none">
+      <ion-list-header>
+        <ion-card-subtitle>Envío de datos a broker MQTT</ion-card-subtitle>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label floating>
+          Mensaje
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="mensaje"></ion-input>
+      </ion-item>
+
+      </ion-list>
+    
+      <ion-button (click)="sendMessage()">Enviar</ion-button>
+      <ion-button color="danger" (click)="enviarmensaje()">OFF</ion-button>
+    </ion-card>
+{{mensaje}}
+
+</ion-content>
